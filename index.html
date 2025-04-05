@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✍️ 자동 블로그 생성기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>🔍 키워드를 입력하세요</h2>
+  <input type="text" id="keywordInput" placeholder="예: AI로 돈 버는 방법" />
+  <br />
+  <button onclick="sendToMake()">✍️ 자동 생성</button>
+
+  <script>
+    function sendToMake() {
+      const keyword = document.getElementById("keywordInput").value.trim();
+      if (!keyword) return alert("키워드를 입력해주세요!");
+
+      fetch("https://hook.us2.make.com/여기에-당신의-Webhook-주소", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ keyword })
+      })
+      .then(() => alert("✅ 요청 완료! 잠시 후 블로그에 업로드됩니다."))
+      .catch(err => alert("⚠️ 오류 발생: " + err.message));
+    }
+  </script>
+</body>
+</html>

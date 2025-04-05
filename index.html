@@ -16,8 +16,8 @@
     function sendToMake() {
       const keyword = document.getElementById("keywordInput").value.trim();
       if (!keyword) return alert("키워드를 입력해주세요!");
-
-      fetch("https://hook.us2.make.com/여기에-당신의-Webhook-주소", {
+  
+      fetch("https://a4774.pythonanywhere.com/proxy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ keyword })
